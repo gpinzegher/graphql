@@ -30,13 +30,8 @@ public class BookService {
     public BookService() {}
 
     public List<Book> getBooksByIds(List<Integer> bookIds) {
-        ThreadHelper.log(log, Thread.currentThread(), AuthorService.class, "getAuthors");
-        //process that takes some time
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        ThreadHelper.log(log, Thread.currentThread(), BookService.class, "getBooksByIds");
+        ThreadHelper.sleep(1000);
         return books.stream().filter(book -> bookIds.contains(book.bookId())).collect(Collectors.toList());
     }
 }

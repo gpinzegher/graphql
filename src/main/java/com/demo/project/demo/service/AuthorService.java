@@ -29,14 +29,8 @@ public class AuthorService {
     public AuthorService() { }
 
     public Map<Book, Author> getAuthors(Set<Book> books) {
-
         ThreadHelper.log(log, Thread.currentThread(), AuthorService.class, "getAuthors");
-        //process that takes some time
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        ThreadHelper.sleep(1000);
         return books.stream().collect(Collectors.toMap(book -> book, book -> getAuthorForBook(book, authors)));
     }
 

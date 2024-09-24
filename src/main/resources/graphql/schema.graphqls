@@ -9,6 +9,7 @@ type Book {
     pageCount: Int
     author: Author
     qtySold: Int
+    rating: Int
 }
 
 type Author {

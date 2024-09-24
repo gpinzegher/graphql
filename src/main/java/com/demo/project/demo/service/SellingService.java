@@ -32,13 +32,8 @@ public class SellingService {
     public SellingService() {}
 
     public Map<Book, Integer> getSellings(Set<Book> books) {
-        ThreadHelper.log(log, Thread.currentThread(), AuthorService.class, "getAuthors");
-        try {
-            //process that takes some time
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        ThreadHelper.log(log, Thread.currentThread(), SellingService.class, "getSellings");
+        ThreadHelper.sleep(1000);
         return books.stream().collect(Collectors.toMap(book -> book, book -> getSellingQtyForBook(book, sellings).qtySold()));
     }
 
